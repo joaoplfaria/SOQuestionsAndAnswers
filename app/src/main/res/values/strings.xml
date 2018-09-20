@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SOQuestionsAndAnswers</string>
+    <string name="full_name">Nome completo</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="confirm_password">Confirmar Senha</string>
+    <string name="cpf">CPF</string>
+    <string name="save">SALVAR</string>
+    <string name="clear">LIMPAR</string>
+</resources>
