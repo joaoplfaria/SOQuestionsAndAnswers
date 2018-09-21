@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/edtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,11 +42,12 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/txtInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,13 +62,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <AutoCompleteTextView
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/edtConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:hint="@string/confirm_password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:textColorHighlight="#7cff88"
                 tools:ignore="LabelFor" />
         </android.support.design.widget.TextInputLayout>
@@ -78,7 +79,7 @@
             app:counterEnabled="true"
             app:counterMaxLength="14">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/edtCPF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

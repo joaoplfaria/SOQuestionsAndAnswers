@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    android:gravity="bottom"
-    android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".activity.LoginActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -16,23 +25,25 @@
         android:layout_marginBottom="8dp">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/edtEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email" />
+            android:hint="@string/email"
+            android:textColorHighlight="#7cff88"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/edtEmailLogin"
+        android:id="@+id/textInputLayoutLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        app:passwordToggleEnabled="true">
+        android:layout_marginBottom="8dp">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edtPasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password" />
+            android:hint="@string/password"
+            android:textColorHighlight="#7cff88"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -52,8 +63,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="60dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginBottom="8dp"
         android:onClick="registerUser"
-        android:text="@string/clear" />
+        android:text="@string/register_new_user" />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
