@@ -56,21 +56,17 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                // App code
-                Toast.makeText(LoginActivity.this, "NOSSOSCU", Toast.LENGTH_SHORT).show();
-                // App code
+                Log.d(TAG, "Usuário logado com sucesso");
             }
 
             @Override
             public void onCancel() {
-                Toast.makeText(LoginActivity.this, "TEUCU", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Cancelado");
             }
 
             @Override
             public void onError(FacebookException exception) {
-                // App code
-                Toast.makeText(LoginActivity.this, "BARRIGADODIEGO", Toast.LENGTH_SHORT).show();
-                exception.printStackTrace();
+                Log.d(TAG, "Erro ao tentar logar o usuário: " + exception);
             }
         });
 
