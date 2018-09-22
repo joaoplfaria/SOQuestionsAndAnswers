@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">SOQuestionsAndAnswers</string>
+    <string name="facebook_app_id">1922288924733557</string>
+    <string name="fb_login_protocol_scheme">fb1922288924733557</string>
     <string name="full_name">Nome completo</string>
     <string name="email">E-mail</string>
     <string name="password">Senha</string>
@@ -8,4 +10,5 @@
     <string name="save">SALVAR</string>
     <string name="clear">LIMPAR</string>
     <string name="register_new_user">Cadastrar novo usuário</string>
+    <string name="login">Login</string>
 </resources>

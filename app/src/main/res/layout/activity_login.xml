@@ -14,57 +14,67 @@
         android:orientation="vertical">
 
         <ImageView
-            android:src="@drawable/logo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:src="@drawable/logo" />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/edtEmailLogin"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
-            android:textColorHighlight="#7cff88"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginBottom="8dp">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayoutLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edtEmailLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:textColorHighlight="#7cff88" />
+        </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/edtPasswordLogin"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:textColorHighlight="#7cff88"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginBottom="8dp">
 
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="60dp"
-        android:onClick="loginUser"
-        android:text="@string/save" />
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edtPasswordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColorHighlight="#7cff88" />
+        </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="60dp"
-        android:onClick="registerUser"
-        android:text="@string/register_new_user" />
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="16dp"
+            android:onClick="loginUser"
+            android:text="@string/login" />
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="16dp"
+            android:onClick="registerUser"
+            android:text="@string/register_new_user" />
 
     </LinearLayout>
 </ScrollView>

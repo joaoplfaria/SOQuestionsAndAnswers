@@ -87,10 +87,10 @@ public class RegisterActivity extends AppCompatActivity {
             user.setCpf(edtCPF.getText().toString());
 
             //Criar usuário no Auth
-            userDAO.onAuthCreateContact(edtEmail.getText().toString(), edtPassword.getText().toString());
+            userDAO.onAuthCreateUser(edtEmail.getText().toString(), edtPassword.getText().toString());
 
             //Criar registro no database
-            userDAO.onDatabaseRegisterContact(user, RegisterActivity.this);
+            userDAO.onDatabaseRegisterUser(user, RegisterActivity.this);
 
             clearForm(view);
             edtName.requestFocus();
