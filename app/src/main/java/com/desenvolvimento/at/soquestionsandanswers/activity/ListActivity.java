@@ -63,7 +63,6 @@ public class ListActivity extends AppCompatActivity {
 
                 TextView textView = findViewById(R.id.cool_response);
                 textView.setText(repos);
-                Toast.makeText(ListActivity.this, "PASSEI AQUI FDP", Toast.LENGTH_LONG).show();
             }
 
             @Override
