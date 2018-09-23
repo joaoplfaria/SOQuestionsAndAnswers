@@ -1,5 +1,6 @@
 package com.desenvolvimento.at.soquestionsandanswers.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -76,6 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
+    //Cadastrar no database
     public void saveUser(View view) {
         //LEMBRAR DE MANDAR O CARA PARA 'MAIN' LISTA COM PERGUNTAS E RESPOSTAS
         validateForm();
@@ -97,6 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
+    //Limpar o formulário
     public void clearForm(View view) {
         edtName.getText().clear();
         edtEmail.getText().clear();

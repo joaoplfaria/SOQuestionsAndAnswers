@@ -1,10 +1,13 @@
 package com.desenvolvimento.at.soquestionsandanswers.DAO;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.desenvolvimento.at.soquestionsandanswers.activity.ListActivity;
+import com.desenvolvimento.at.soquestionsandanswers.activity.LoginActivity;
 import com.desenvolvimento.at.soquestionsandanswers.activity.RegisterActivity;
 import com.desenvolvimento.at.soquestionsandanswers.domain.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,6 +48,8 @@ public class UserDAO {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Log.d(TAG, "Usuário logado!");
+                    Intent toList = new Intent(activity, ListActivity.class);
+                    activity.startActivity(toList);
                 } else {
                     Toast.makeText(activity, "Usuário ou senha incorreto.", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "Falha ao logar o usuário!");
@@ -53,7 +58,7 @@ public class UserDAO {
         });
     }
 
-    public void onDatabaseRegisterUser(User user, final RegisterActivity registerActivity) {
+    public void onDatabaseRegisterUser(User user, final Activity activity) {
 
         reference = FirebaseDatabase.getInstance().getReference("user");
         reference.keepSynced(true);
@@ -65,10 +70,13 @@ public class UserDAO {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(registerActivity, "Usuário cadastrado com sucesso.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(activity, "Usuário cadastrado com sucesso.", Toast.LENGTH_LONG).show();
                         Log.d(TAG, "Usuário cadastrado no database");
+                        Intent toLogin = new Intent(activity, LoginActivity.class);
+                        activity.startActivity(toLogin);
+
                     } else {
-                        Toast.makeText(registerActivity, "Falha ao cadastrar o usuário.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(activity, "Falha ao cadastrar o usuário.", Toast.LENGTH_LONG).show();
                         Log.d(TAG, "Falha ao cadastrar usuário no database");
                     }
                 }

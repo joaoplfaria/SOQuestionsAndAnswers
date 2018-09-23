@@ -11,4 +11,5 @@
     <string name="clear">LIMPAR</string>
     <string name="register_new_user">Cadastrar novo usuário</string>
     <string name="login">Login</string>
+    <string name="seachAnything">O que você está procurando ?</string>
 </resources>
