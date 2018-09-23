@@ -2,16 +2,16 @@ package com.desenvolvimento.at.soquestionsandanswers.domain;
 
 public class StackOverflowRepo {
 
-    private String is_answered;
+    private boolean is_answered;
     private String title;
     private String link;
     private String tags;
 
-    public String getIs_answered() {
+    public boolean getIs_answered() {
         return is_answered;
     }
 
-    public void setIs_answered(String is_answered) {
+    public void setIs_answered(boolean is_answered) {
         this.is_answered = is_answered;
     }
 

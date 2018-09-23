@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,12 +23,10 @@ import retrofit2.Retrofit;
 
 public class ListActivity extends AppCompatActivity {
 
-    private TextInputEditText inputEditText;
-    private TextView txtCoolResponse, txtRawResponse;
     Retrofit retrofit;
     IStackOverflowAPI iStackOverflowAPI;
     Call<ResponseBody> rawCall;
-    Call<List<StackOverflowRepo>> SORepo;
+    Call<List<StackOverflowRepo>> call;
     //private ProgressBar progressBar;
 
     @Override
@@ -35,58 +34,66 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        //Views
-        inputEditText = findViewById(R.id.inputUrl);
-        txtCoolResponse = findViewById(R.id.cool_response);
-        txtRawResponse = findViewById(R.id.raw_response);
-
-        //Instaces
         retrofit = RetrofitManager.getInstance();
         iStackOverflowAPI = retrofit.create(IStackOverflowAPI.class);
-        //progressbar vai aqui
+
     }
 
 
     public void getData(View view) {
-        rawCall = iStackOverflowAPI.getQuestionsAndAnswers(inputEditText.getText().toString());
+        EditText editText = findViewById(R.id.inputUrl);
 
-        //SORepo = iStackOverflowAPI.getNoTreatment(inputEditText.getText().toString());
+        rawCall = iStackOverflowAPI.getNoTreatment(editText.getText().toString());
 
-        /*SORepo.enqueue(new Callback<List<StackOverflowRepo>>() {
+        call = iStackOverflowAPI.getQuestionsAndAnswers(editText.getText().toString());
+
+        call.enqueue(new Callback<List<StackOverflowRepo>>() {
             @Override
             public void onResponse(Call<List<StackOverflowRepo>> call, Response<List<StackOverflowRepo>> response) {
                 String repos = "";
 
-                for (StackOverflowRepo repository : response.body()) {
-                    repos += String.format("%s\n%s\n%s\n%s\n",
-                            repository.getTitle(),
+                for ( StackOverflowRepo repository: response.body()) {
+                    repos += String.format("%boolean\n%string\n%string\n%string",
                             repository.getIs_answered(),
-                            repository.getTags(),
-                            repository.getLink());
+                            repository.getTitle(),
+                            repository.getLink(),
+                            repository.getTags()
+                    );
                 }
 
-                txtCoolResponse.setText(repos);
+                TextView textView = findViewById(R.id.cool_response);
+                textView.setText(repos);
+                Toast.makeText(ListActivity.this, "PASSEI AQUI FDP", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(Call<List<StackOverflowRepo>> call, Throwable t) {
-                Toast.makeText(ListActivity.this, "Falha ao carregar os dados da API", Toast.LENGTH_SHORT).show();
+
             }
-        });*/
+        });
+
+
 
         rawCall.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                TextView textView = findViewById(R.id.raw_response);
                 try {
-                    txtRawResponse.setText(response.body().string());
-                } catch (IOException e) {
-                    Toast.makeText(ListActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    textView.setText(response.body().string());
+                } catch (IOException exception){
+                    Toast.makeText(ListActivity.this,
+                            exception.getMessage(), Toast.LENGTH_LONG).show();
                 }
+
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(ListActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(ListActivity.this,
+                        t.getMessage(),
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
