@@ -1,6 +1,5 @@
 package com.desenvolvimento.at.soquestionsandanswers.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -64,12 +63,8 @@ public class RegisterActivity extends AppCompatActivity {
             flag = true;
         }
         if (edtConfirmPassword.getText().toString().isEmpty() &&
-                edtConfirmPassword.getText().toString().equals(edtConfirmPassword.getText().toString())) {
+                edtConfirmPassword.getText().toString().equals(edtPassword.getText().toString())) {
             edtConfirmPassword.setError("O campo senha não pode ficar em branco e as senhas devem ser semelhantes.");
-        }
-        if (!isEmail(edtEmail)) {
-            edtEmail.setError("Insira um e-mail válido. (XXXX@XXXX.com");
-            flag = true;
         }
         if (edtCPF.getText().toString().isEmpty()) {
             edtCPF.setError("O campo CPF não pode ficar em branco.");
@@ -79,7 +74,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     //Cadastrar no database
     public void saveUser(View view) {
-        //LEMBRAR DE MANDAR O CARA PARA 'MAIN' LISTA COM PERGUNTAS E RESPOSTAS
         validateForm();
         if (!flag) {
             user.setName(edtName.getText().toString());

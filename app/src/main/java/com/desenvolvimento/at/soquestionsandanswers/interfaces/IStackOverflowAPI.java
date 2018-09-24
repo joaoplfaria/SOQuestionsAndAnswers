@@ -1,5 +1,6 @@
 package com.desenvolvimento.at.soquestionsandanswers.interfaces;
 
+import com.desenvolvimento.at.soquestionsandanswers.activity.ListWrapper;
 import com.desenvolvimento.at.soquestionsandanswers.domain.StackOverflowRepo;
 
 import java.util.List;
@@ -12,10 +13,10 @@ import retrofit2.http.Query;
 public interface IStackOverflowAPI {
 
 
-    @GET("questions?order=desc&sort=activity&site=stackoverflow")
-    Call<List<StackOverflowRepo>> getQuestionsAndAnswers(@Query("items") String items);
+    @GET("search?order=desc&sort=activity&site=stackoverflow")
+    Call<ListWrapper<StackOverflowRepo>> loadQuestions(@Query("tagged") String tagged, @Query("intitle") String intitle);
 
-    @GET("questions?order=desc&sort=activity&site=stackoverflow")
-    Call<ResponseBody> getNoTreatment(@Query("tagged") String tag);
+    @GET("search?order=desc&sort=activity&site=stackoverflow")
+    Call<ResponseBody> getNoTreatment(@Query("tagged") String tagged, @Query("intitle") String intitle);
 
 }

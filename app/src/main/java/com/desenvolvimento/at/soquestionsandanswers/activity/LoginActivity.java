@@ -16,7 +16,6 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.login.Login;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -82,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //Verificando se o usuário atual está logado no firebase auth ou pelo facebook
-        if (FirebaseAuth.getInstance().getCurrentUser() != null || isLoggedIn){
+        if (FirebaseAuth.getInstance().getCurrentUser() != null || isLoggedIn) {
             Intent toListActivity = new Intent(this, ListActivity.class);
             startActivity(toListActivity);
             finish();

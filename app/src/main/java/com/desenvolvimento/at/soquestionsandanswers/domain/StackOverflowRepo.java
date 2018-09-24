@@ -2,16 +2,16 @@ package com.desenvolvimento.at.soquestionsandanswers.domain;
 
 public class StackOverflowRepo {
 
-    private boolean is_answered;
+    private String is_answered;
     private String title;
     private String link;
     private String tags;
 
-    public boolean getIs_answered() {
+    public String getIs_answered() {
         return is_answered;
     }
 
-    public void setIs_answered(boolean is_answered) {
+    public void setIs_answered(String is_answered) {
         this.is_answered = is_answered;
     }
 
@@ -39,11 +39,4 @@ public class StackOverflowRepo {
         this.tags = tags;
     }
 
-/*    @Override
-    public String toString() {
-        return "Titulo: " + getTitle()
-                + "\nEstá respondida: " + getIs_answered()
-                + "\nLink: " + getLink()
-                + "\nTags: " + getTags();
-    }*/
 }
