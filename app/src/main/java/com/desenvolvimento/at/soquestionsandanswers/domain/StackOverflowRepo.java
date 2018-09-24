@@ -38,4 +38,12 @@ public class StackOverflowRepo {
     public void setTags(String tags) {
         this.tags = tags;
     }
+
+/*    @Override
+    public String toString() {
+        return "Titulo: " + getTitle()
+                + "\nEstá respondida: " + getIs_answered()
+                + "\nLink: " + getLink()
+                + "\nTags: " + getTags();
+    }*/
 }

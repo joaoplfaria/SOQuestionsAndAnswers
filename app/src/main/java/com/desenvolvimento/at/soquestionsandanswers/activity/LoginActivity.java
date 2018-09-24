@@ -20,6 +20,7 @@ import com.facebook.login.Login;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
 
@@ -78,6 +79,14 @@ public class LoginActivity extends AppCompatActivity {
                 LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this, Arrays.asList("public_profile"));
             }
         });
+
+
+        //Verificando se o usuário atual está logado no firebase auth ou pelo facebook
+        if (FirebaseAuth.getInstance().getCurrentUser() != null || isLoggedIn){
+            Intent toListActivity = new Intent(this, ListActivity.class);
+            startActivity(toListActivity);
+            finish();
+        }
     }
 
     //Recupera o resultado do callback

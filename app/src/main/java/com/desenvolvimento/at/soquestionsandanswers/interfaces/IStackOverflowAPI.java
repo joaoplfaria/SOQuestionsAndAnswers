@@ -13,7 +13,7 @@ public interface IStackOverflowAPI {
 
 
     @GET("questions?order=desc&sort=activity&site=stackoverflow")
-    Call<List<StackOverflowRepo>> getQuestionsAndAnswers(@Query("tagged") String tag);
+    Call<List<StackOverflowRepo>> getQuestionsAndAnswers(@Query("items") String items);
 
     @GET("questions?order=desc&sort=activity&site=stackoverflow")
     Call<ResponseBody> getNoTreatment(@Query("tagged") String tag);
