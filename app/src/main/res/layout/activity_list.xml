@@ -43,19 +43,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-<!--            <TextView
+            <TextView
                 android:id="@+id/cool_response"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="Resposta tratada"
-                android:textSize="22dp" />-->
+                android:textSize="22dp" />
             
             <TextView
                 android:id="@+id/raw_response"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Resposta"
+                android:text="Resposta não tratada"
                 android:textSize="22dp"/>
 
         </LinearLayout>
