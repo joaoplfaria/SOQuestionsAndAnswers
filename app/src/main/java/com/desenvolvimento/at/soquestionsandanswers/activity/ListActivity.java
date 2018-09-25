@@ -69,11 +69,11 @@ public class ListActivity extends AppCompatActivity implements Callback<Response
     public void getData(View view) {
         iStackOverflowAPI = retrofit.create(IStackOverflowAPI.class);
         EditText editText = findViewById(R.id.inputUrl);
-        rawCall = iStackOverflowAPI.getNoTreatment("android", editText.getText().toString());
+        rawCall = iStackOverflowAPI.getNoTreatment(editText.getText().toString(), editText.getText().toString());
         rawCall.enqueue(this);
 
 
-        call = iStackOverflowAPI.loadQuestions("android", editText.getText().toString());
+        call = iStackOverflowAPI.loadQuestions(editText.getText().toString(), editText.getText().toString());
         call.enqueue(new Callback<ListWrapper<StackOverflowRepo>>() {
             @Override
             public void onResponse(Call<ListWrapper<StackOverflowRepo>> call, Response<ListWrapper<StackOverflowRepo>> response) {
